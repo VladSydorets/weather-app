@@ -28,7 +28,7 @@ const displayData = (data) => {
   const newDiv = document.createElement("div");
 
   const date = new Date(data.dt * 1000);
-  const weekday = date.toLocaleString("en-US", { weekday: "long" });
+  const weekday = date.toLocaleString("en-US", { weekday: "long" }); // maybe try to destructure it?
   const day = date.toLocaleString("en-US", { day: "numeric" });
   const month = date.toLocaleString("en-US", { month: "long" });
 
@@ -55,7 +55,7 @@ form.addEventListener("submit", async (e) => {
 
     const res = await axios.get(
       "https://api.openweathermap.org/data/2.5/weather",
-      { params: { lat: lat, lon: lon, units: "metric", appid: apiKey } }
+      { params: { lat, lon, units: "metric", appid: apiKey } }
     );
 
     displayData(res.data);
