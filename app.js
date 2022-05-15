@@ -28,7 +28,7 @@ const displayData = (data) => {
   const newDiv = document.createElement("div");
 
   const date = new Date(data.dt * 1000);
-  const weekday = date.toLocaleString("en-US", { weekday: "long" }); // maybe try to destructure it?
+  const weekday = date.toLocaleString("en-US", { weekday: "long" });
   const day = date.toLocaleString("en-US", { day: "numeric" });
   const month = date.toLocaleString("en-US", { month: "long" });
 
@@ -48,8 +48,7 @@ const displayData = (data) => {
   main.appendChild(newDiv);
 };
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+const loadData = async () => {
   try {
     const { lat, lon } = await geocodeData();
 
@@ -62,4 +61,9 @@ form.addEventListener("submit", async (e) => {
   } catch (err) {
     return err;
   }
+};
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  loadData();
 });
