@@ -4,9 +4,9 @@ input:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: rgb(255, 255, 255);
-  -webkit-box-shadow: 0 0 0px 1000px rgba(100, 97, 97, 0.2) inset;
-  box-shadow: 0 0 0px 1000px rgba(100, 97, 97, 0.2) inset;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.4);
+  /* -webkit-box-shadow: 0 0 0px 1000px rgba(100, 97, 97, 0.2) inset; */
+  /* box-shadow: 0 0 0px 1000px rgba(100, 97, 97, 0.2) inset; */
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -19,11 +19,16 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-    url("https://images.unsplash.com/photo-1583530126066-4c4b93ec9eca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80");
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url("https://images.pexels.com/photos/7891860/pexels-photo-7891860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,7 +39,7 @@ main {
   color: white;
   max-width: 25rem;
   width: 100%;
-  max-height: 20rem;
+  max-height: 22rem;
   height: 50%;
   border-radius: 1rem;
 }
@@ -55,7 +60,7 @@ input {
   background-color: rgba(100, 97, 97, 0.2);
   padding: 0.25rem 0.75rem;
   width: 15rem;
-  color: white;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 input:focus {
@@ -69,14 +74,14 @@ form {
 ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
 }
 
 .weather-text {
   padding-left: 3rem;
 }
 
-p {
+p,
+ul {
   margin: 0;
 }
 

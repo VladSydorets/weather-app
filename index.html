@@ -14,25 +14,29 @@
     <title>Weather App</title>
   </head>
   <body>
-    <main>
-      <form id="queryForm">
-        <input type="text" name="text" id="search" placeholder="Search" />
-        <button id="searchBtn">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
-      <div class="weather-text">
-        <h1>Košice, SK</h1>
-        <p>Sunday, May 15</p>
-        <p>Clear sky</p>
-        <p id="temperature">22°C</p>
-        <ul>
-          <li>Feels like: 21°C</li>
-          <li>Humidity: 43%</li>
-          <li>Wind: 1.54 km/h</li>
-        </ul>
-      </div>
-    </main>
+    <div class="container">
+      <main>
+        <form id="queryForm">
+          <input type="text" name="text" id="search" placeholder="Search" />
+          <button id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="weather-text">
+          <h1>Košice, SK</h1>
+          <p>Sunday, May 15</p>
+          <p>Clear sky</p>
+          <p id="temperature">22°C</p>
+          <ul>
+            <li>Feels like: 21°C</li>
+            <li>Humidity: 43%</li>
+            <li>Wind: 1.54 km/h</li>
+          </ul>
+        </div>
+      </main>
+    </div>
+
+    <!-- To add an author signature -->
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script

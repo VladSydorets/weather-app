@@ -59,11 +59,39 @@ const loadData = async () => {
 
     displayData(res.data);
   } catch (err) {
-    return err;
+    console.log(`FAILED TO LOAD THE DATA - ${err}`);
+  }
+};
+
+const loadImage = async () => {
+  try {
+    const apiKey = "563492ad6f91700001000001fde76d02bd264bb7ad901e3ff8fc16cd";
+
+    const config = {
+      params: {
+        query: form.elements.text.value,
+        orientation: "landscape",
+        // size: "medium",
+        Authorization: apiKey,
+      },
+      headers: {
+        Authorization: apiKey,
+      },
+    };
+
+    const res = await axios.get("https://api.pexels.com/v1/search", config);
+
+    const img = res.data.photos[0].src.large2x;
+    const container = document.querySelector(".container");
+
+    container.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(${img})`;
+  } catch (error) {
+    console.log(`FAILED TO LOAD THE IMAGE - ${error}`);
   }
 };
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  loadImage();
   loadData();
 });
