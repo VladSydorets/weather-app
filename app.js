@@ -84,6 +84,10 @@ const loadImage = async () => {
     const img = res.data.photos[0].src.large2x;
     const container = document.querySelector(".container");
 
+    const author = document.querySelector("#authorSignature");
+    author.href = res.data.photos[0].photographer_url;
+    author.lastChild.innerHTML = res.data.photos[0].photographer;
+
     container.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(${img})`;
   } catch (error) {
     console.log(`FAILED TO LOAD THE IMAGE - ${error}`);
