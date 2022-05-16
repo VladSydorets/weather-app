@@ -50,6 +50,16 @@ main {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.temperature-wrap img {
+  height: 5rem;
+  width: 5rem;
+}
+
+.temperature-wrap {
+  display: flex;
+  align-items: center;
+}
+
 button {
   cursor: pointer;
   border: none;

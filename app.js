@@ -39,7 +39,9 @@ const displayData = (data) => {
 
   const feelsLike = Math.floor(data.main.feels_like);
 
-  newDiv.innerHTML += `<h1>${data.name}, ${data.sys.country}</h1><p>${weekday}, ${month} ${day}</p><p>${weather}</p><p id="temperature">${temperature}°C</p>`;
+  const imgIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+  newDiv.innerHTML += `<h1>${data.name}, ${data.sys.country}</h1><p>${weekday}, ${month} ${day}</p><p>${weather}</p><div class="temperature-wrap"><img src="${imgIcon}"><p id="temperature">${temperature}°C</p></div>`;
   newDiv.innerHTML += `<ul><li>Feels like: ${feelsLike}°C</li><li>Humidity: ${data.main.humidity}%</li><li>Wind: ${data.wind.speed} km/h</li></ul>`;
 
   newDiv.classList.add("weather-text");
@@ -56,7 +58,6 @@ const loadData = async () => {
       "https://api.openweathermap.org/data/2.5/weather",
       { params: { lat, lon, units: "metric", appid: apiKey } }
     );
-
     displayData(res.data);
   } catch (err) {
     console.log(`FAILED TO LOAD THE DATA - ${err}`);
@@ -71,7 +72,6 @@ const loadImage = async () => {
       params: {
         query: form.elements.text.value,
         orientation: "landscape",
-        // size: "medium",
         Authorization: apiKey,
       },
       headers: {
@@ -82,9 +82,10 @@ const loadImage = async () => {
     const res = await axios.get("https://api.pexels.com/v1/search", config);
 
     const img = res.data.photos[0].src.large2x;
-    const container = document.querySelector(".container");
 
+    const container = document.querySelector(".container");
     const author = document.querySelector("#authorSignature");
+
     author.href = res.data.photos[0].photographer_url;
     author.lastChild.innerHTML = res.data.photos[0].photographer;
 
