@@ -1,4 +1,4 @@
-const apiKey = "9fa90ff6f9eb73e50f906a6226e23720";
+import { WEATHER_API_KEY, IMAGES_API_KEY } from "./keys.js";
 
 const form = document.querySelector("form");
 
@@ -8,7 +8,7 @@ const geocodeData = async () => {
     const res = await axios.get(
       "http://api.openweathermap.org/geo/1.0/direct",
       {
-        params: { q: inputText, limit: 1, appid: apiKey },
+        params: { q: inputText, limit: 1, appid: WEATHER_API_KEY },
       }
     );
 
@@ -56,7 +56,7 @@ const loadData = async () => {
 
     const res = await axios.get(
       "https://api.openweathermap.org/data/2.5/weather",
-      { params: { lat, lon, units: "metric", appid: apiKey } }
+      { params: { lat, lon, units: "metric", appid: WEATHER_API_KEY } }
     );
     displayData(res.data);
   } catch (err) {
@@ -66,16 +66,14 @@ const loadData = async () => {
 
 const loadImage = async () => {
   try {
-    const apiKey = "563492ad6f91700001000001fde76d02bd264bb7ad901e3ff8fc16cd";
-
     const config = {
       params: {
         query: form.elements.text.value,
         orientation: "landscape",
-        Authorization: apiKey,
+        Authorization: IMAGES_API_KEY,
       },
       headers: {
-        Authorization: apiKey,
+        Authorization: IMAGES_API_KEY,
       },
     };
 
