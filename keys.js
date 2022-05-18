@@ -1,3 +1,0 @@
-export const WEATHER_API_KEY = "9fa90ff6f9eb73e50f906a6226e23720";
-export const IMAGES_API_KEY =
-  "563492ad6f91700001000001fde76d02bd264bb7ad901e3ff8fc16cd";

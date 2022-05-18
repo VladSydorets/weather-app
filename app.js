@@ -1,7 +1,9 @@
+// Import api keys
 import { WEATHER_API_KEY, IMAGES_API_KEY } from "./keys.js";
 
 const form = document.querySelector("form");
 
+// Geocode the location using openweathermap API
 const geocodeData = async () => {
   try {
     const inputText = form.elements.text.value;
@@ -21,6 +23,7 @@ const geocodeData = async () => {
   }
 };
 
+// Display data from the API on the website
 const displayData = (data) => {
   const oldDiv = document.querySelector(".weather-text");
   oldDiv.remove();
@@ -50,6 +53,7 @@ const displayData = (data) => {
   main.appendChild(newDiv);
 };
 
+// Load the data from the API
 const loadData = async () => {
   try {
     const { lat, lon } = await geocodeData();
@@ -64,6 +68,7 @@ const loadData = async () => {
   }
 };
 
+// Load the background image from the Pexels.com API
 const loadImage = async () => {
   try {
     const config = {
