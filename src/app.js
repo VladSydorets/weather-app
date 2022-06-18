@@ -8,7 +8,7 @@ const geocodeData = async () => {
   try {
     const inputText = form.elements.text.value;
     const res = await axios.get(
-      "http://api.openweathermap.org/geo/1.0/direct",
+      "https://api.openweathermap.org/geo/1.0/direct",
       {
         params: { q: inputText, limit: 1, appid: WEATHER_API_KEY },
       }
@@ -42,7 +42,7 @@ const displayData = (data) => {
 
   const feelsLike = Math.floor(data.main.feels_like);
 
-  const imgIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  const imgIcon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
   newDiv.innerHTML += `<h1>${data.name}, ${data.sys.country}</h1><p>${weekday}, ${month} ${day}</p><p>${weather}</p><div class="temperature-wrap"><img src="${imgIcon}"><p id="temperature">${temperature}°C</p></div>`;
   newDiv.innerHTML += `<ul><li>Feels like: ${feelsLike}°C</li><li>Humidity: ${data.main.humidity}%</li><li>Wind: ${data.wind.speed} km/h</li></ul>`;
